@@ -15,19 +15,18 @@ var T = new Twit({
 var stream = T.stream('statuses/filter', { track: Config.keywords });
 stream.on('tweet', function (tweet) {
     if (Config.valid(tweet)) {
-        var response = Config.respond(tweet);
         if (!Config.debug) {
-            T.post('statuses/update', { status: response }, function (err, reply) {
+            T.post('statuses/retweet', { id: tweet.id }, function (err, reply) {
                 if (err) {
                     console.log(err);
                 } else {
                     var now = new Date();
-                    console.log('[' + now.toJSON() + '] SENT: ' + response);
+                    console.log('[' + now.toJSON() + '] SENT: ' + tweet.text);
                 }
             });
         } else {
             var now = new Date();
-            console.log('[' + now.toJSON() + '] ' + response);
+            console.log('[' + now.toJSON() + '] ' + tweet.text);
         }
     } else {
         var now = new Date();
