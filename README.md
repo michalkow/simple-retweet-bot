@@ -6,7 +6,7 @@ Twitter's streaming API.
 
 ## Usage
 
-1. `git clone https://github.com/rfreebern/simple-twitter-bot.git && cd simple-twitter-bot && npm install`
+1. `git clone https://github.com/michalkow/simple-retweet-bot.git && cd simple-retweet-bot && npm install`
 2. Create an application on http://dev.twitter.com
 3. Generate the necessary tokens.
 4. Copy `config.js-dist` to `config.js`
